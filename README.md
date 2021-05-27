@@ -20,7 +20,7 @@ Passengers can be created with the "<strong>Create New</strong>" button on the P
 
 Passengers can be added to a flight when creating or editing an existing flight on the *Flights/Index* page by checking the box that corresponds to the passengers name and ID.
 
-The code in DbInitializer.cs can be uncommented to seed the database with some test data.
+The code in *DbInitializer.cs* can be uncommented to seed the database with some test data.
 
 
   
