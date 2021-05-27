@@ -90,7 +90,6 @@ namespace FlightInformation.Controllers
             {
                 return NotFound();
             }
-
             if (ModelState.IsValid)
             {
                 try
@@ -121,14 +120,12 @@ namespace FlightInformation.Controllers
             {
                 return NotFound();
             }
-
             var passenger = await _context.Passengers
                 .FirstOrDefaultAsync(m => m.PassengerID == id);
             if (passenger == null)
             {
                 return NotFound();
             }
-
             return View(passenger);
         }
 
@@ -158,7 +155,6 @@ namespace FlightInformation.Controllers
             {
                 return Json($"A passenger with this ID already exists. Please choose a unique ID");
             }
-
             return Json(true);
         }
     }

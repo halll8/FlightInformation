@@ -149,7 +149,6 @@ namespace FlightInformation.Controllers
             {
                 return NotFound();
             }
-
             var flightToUpdate = await _context.Flights
                 .Include(f => f.Tickets)
                     .ThenInclude(f => f.Passenger)
@@ -219,14 +218,12 @@ namespace FlightInformation.Controllers
             {
                 return NotFound();
             }
-
             var flight = await _context.Flights
                 .FirstOrDefaultAsync(m => m.ID == id);
             if (flight == null)
             {
                 return NotFound();
             }
-
             return View(flight);
         }
 
