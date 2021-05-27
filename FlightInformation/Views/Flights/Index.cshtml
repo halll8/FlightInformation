@@ -1,0 +1,74 @@
+﻿@model FlightInformation.Models.FlightInfoViewModels.FlightIndexData
+
+@{
+    ViewData["Title"] = "Flights";
+}
+
+<h1>Flights</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Flight Number</th>
+            <th>Air Line</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Flights)
+        {
+            string selectedRow = "";
+            if (item.ID == (int?)ViewData["FlightID"])
+            {
+                selectedRow = "table-success";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    @Html.DisplayFor(modelItem => item.FlightNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AirLine)
+                </td>
+                <td>
+                    <a asp-action="Index" asp-route-id="@item.ID">Select</a> |
+                    <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@if (Model.Passengers != null)
+{
+    <h2>Passengers Registered</h2>
+    <table class="table">
+        <tr>
+            <th>Passenger ID</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+        </tr>
+        @foreach (var item in Model.Passengers)
+        {
+            string selectedRow = "";
+            if (item.PassengerID == (int?)ViewData["PassengerID"])
+            {
+                selectedRow = "success";
+            }
+            <tr class="@selectedRow">
+                <td>
+                    @item.PassengerID
+                </td>
+                <td>
+                    @item.FirstName
+                </td>
+                <td>
+                    @item.LastName
+                </td>
+            </tr>
+        }
+    </table>
+}
