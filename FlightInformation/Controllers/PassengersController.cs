@@ -30,14 +30,12 @@ namespace FlightInformation.Controllers
             {
                 return NotFound();
             }
-
             var passenger = await _context.Passengers
                 .FirstOrDefaultAsync(m => m.PassengerID == id);
             if (passenger == null)
             {
                 return NotFound();
             }
-
             return View(passenger);
         }
 
@@ -70,7 +68,6 @@ namespace FlightInformation.Controllers
             {
                 return NotFound();
             }
-
             var passenger = await _context.Passengers.FindAsync(id);
             if (passenger == null)
             {
@@ -147,7 +144,7 @@ namespace FlightInformation.Controllers
 
         // Parameters: int PassengerID of a given passenger
         // Validates the uniqueness of a PassengerID
-        // Returns: true if number is unique and validation warning message otherwise
+        // Returns: true if ID is unique and validation warning message otherwise
         [AcceptVerbs("GET", "POST")]
         public IActionResult VerifyPassengerID(int PassengerID)
         {

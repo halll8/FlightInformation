@@ -123,7 +123,7 @@ namespace FlightInformation.Controllers
         private void PopulateRegisteredPassengerData(Flight flight)
         {
             var allPassengers = _context.Passengers;
-            var flightPassengers = new HashSet<int>(flight.Tickets.Select(p => p.PassengerID));
+            var flightPassengers = new HashSet<int>(flight.Tickets.Select(t => t.PassengerID));
             var viewModel = new List<RegisteredPassengerData>();
             foreach (var passenger in allPassengers)
             {
