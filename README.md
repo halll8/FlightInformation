@@ -4,7 +4,7 @@
 
 <strong>Technologies used:</strong>
 
-     Visual Studio 2019, ASP.NET Core 5.0, SQL Server LocalDB
+     Visual Studio 2019 Version: 16.9.6 , .NET Core 5.0, SQL Server LocalDB
 
 <strong>Instructions:</strong>
 
