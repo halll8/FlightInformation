@@ -1,12 +1,17 @@
-# Flight Information
+<h1>Flight Information</h1>
 
-     Flight information system as an ASP.NET Core Web Application
+This is an ASP.NET Core Web Application representing a flight information system. The home page of this app provides a list of flights where each flight can be selected to display a corresponding list of passengers. Flights can be added to the flight list and passengers can be added to each flight. Data is stored in 3 tables (Flights, Passengers, and Tickets). There is a many-to-many relationship between Flights and Passengers so Tickets serves as a many-to-many join table.
 
-<strong>Technologies used:</strong>
+<h2>Technologies used</h2>
+<ul>
+     <li>Visual Studio 2019 16.9.6</li>
+     <li>.NET 5.0 SDK</li>
+     <li>SQL Server LocalDB</li>
+     <li>Entity Framework Core</li>
+</ul>
 
-     Visual Studio 2019 Version: 16.9.6 , .NET Core 5.0, SQL Server LocalDB
 
-<strong>Instructions:</strong>
+<h2>Usage</h2>
 
 The home page of the app (Flights/Index) displays a table of flights. Flights can be added to this table with the "Create New" button.
 
