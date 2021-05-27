@@ -62,8 +62,6 @@ namespace FlightInformation.Controllers
         }
 
         // GET: Flights/Create
-        //
-        // Calls PopulatedRegisteredPassengerData helper method in order to provide empty collection to view
         public IActionResult Create()
         {
             var flight = new Flight();
@@ -75,10 +73,6 @@ namespace FlightInformation.Controllers
         // POST: Flights/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        //
-        // Parameters: Flight, String array of PassengerIDs
-        // Adds all selected passengers to the Tickets navigation property before checking for validation errors
-        // and then adds flight to database.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("FlightNumber,AirLine")] Flight flight, string[] selectedPassengers)
@@ -237,8 +231,6 @@ namespace FlightInformation.Controllers
         }
 
         // POST: Flights/Delete/5
-        //
-        // Does eager loading for Tickets so EF deletes associated Ticket entities
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -268,9 +260,7 @@ namespace FlightInformation.Controllers
                 {
                     return Json($"A flight with this number already exists. Please choose a unique flight number");
                 }
-
             }
-
             return Json(true);
         }
 
