@@ -36,12 +36,10 @@ namespace FlightInformation.Controllers
                     f => f.ID == id.Value).Single();
                 viewModel.Passengers = flight.Tickets.Select(t => t.Passenger);
             }
-
             if (passengerID != null)
             {
                 ViewData["PassengerID"] = passengerID.Value;
             }
-
             return View(viewModel);
         }
 
@@ -78,6 +76,7 @@ namespace FlightInformation.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         //
+        // Parameters: Flight, String array of PassengerIDs
         // Adds all selected passengers to the Tickets navigation property before checking for validation errors
         // and then adds flight to database.
         [HttpPost]
@@ -257,9 +256,9 @@ namespace FlightInformation.Controllers
             return _context.Flights.Any(e => e.ID == id);
         }
 
-        // Parameters: int FlightNumber, and int ID 
+        // Parameters: int FlightNumber, and int Flight id 
         // Validate the uniqueness of a flight number when new flight is edited or created
-        // Returns true if flightNumber is unique, and warning validation message otherwise
+        // Returns: true if flightNumber is unique, and warning validation message otherwise
         [AcceptVerbs("GET", "POST")]
         public IActionResult VerifyFlightNumber(int FlightNumber, int ID)
         {
